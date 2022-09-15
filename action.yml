@@ -1,5 +1,5 @@
 name: "Deploy NodeJS to VPS"
-description: "Checks out a NodeJS repository, builds it, copies it to a remote SSH location, and optionally runs a bash script.
+description: "Checks out a NodeJS repository, builds it, copies it to a remote SSH location, and optionally runs a bash script."
 
 inputs:
   node-version:
