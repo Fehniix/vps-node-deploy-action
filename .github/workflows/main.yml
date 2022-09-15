@@ -15,4 +15,5 @@ jobs:
         uses: Fehniix/vps-node-deploy-action@main
         with:
           ci-build-script: "echo hello!"
+          node-version: test123
     
