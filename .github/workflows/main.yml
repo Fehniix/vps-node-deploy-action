@@ -13,4 +13,6 @@ jobs:
     steps:
       - name: test
         uses: Fehniix/vps-node-deploy-action@main
+        with:
+          ci-build-script: "echo hello!"
     
