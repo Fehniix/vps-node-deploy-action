@@ -1,0 +1,36 @@
+name: "Deploy NodeJS to VPS"
+description: "Checks out a NodeJS repository, builds it, copies it to a remote SSH location, and optionally runs a bash script.
+
+inputs:
+  node-version:
+    description: "The NodeJS version used to setup the environment and build to project."
+    required: true
+   
+ 
+# runs:
+#   using: "composite"
+#   steps:
+#     - name: "Check out the current NodeJS repository"
+#       uses: actions/checkout@v3
+      
+#     - name: "Setup NodeJS enironment"
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: ${{ inputs.node-version }}
+        
+#     - name: "Build the project"
+#       run: |
+#             npm install
+#             npm run build
+            
+#     - name: "Execute custom, optional, CI build script"
+#       if: ${{ inputs.ci-build-script != '' }}
+#       run: ${{ inputs.ci-build-script }}
+
+job1:
+  runs:
+    using: "composite"
+    steps:    
+      - name: "Execute custom, optional, CI build script"
+        if: ${{ inputs.ci-build-script != '' }}
+        run: ${{ inputs.ci-build-script }}
