@@ -33,7 +33,7 @@ runs:
   using: "composite"
   steps:
     - name: "Debug output"
-      run: "toJSON(${{inputs}})"
+      run: "toJSON(inputs)"
       shell: "bash"
       
     - name: "Execute custom, optional, CI build script"
