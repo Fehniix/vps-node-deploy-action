@@ -5,6 +5,9 @@ inputs:
   node-version:
     description: "The NodeJS version used to setup the environment and build to project."
     required: true
+  ci-build-script:
+    description: "a"
+     required: false
    
  
 # runs:
