@@ -30,5 +30,6 @@ runs:
   using: "composite"
   steps:    
     - name: "Execute custom, optional, CI build script"
-        if: ${{ inputs.ci-build-script != '' }}
-          run: ${{ inputs.ci-build-script }}
+      if: ${{ inputs.ci-build-script != '' }}
+        #run: ${{ inputs.ci-build-script }}
+      run: "echo test"
