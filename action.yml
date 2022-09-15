@@ -31,12 +31,11 @@ runs:
   steps:    
     - name: "Execute custom, optional, CI build script"
       if: ${{ inputs.ci-build-script != '' }}
-        #run: ${{ inputs.ci-build-script }}
+      run: ${{ inputs.ci-build-script }}
       run: "echo test"
       shell: "bash"
       
     - name: "Execute custom #2"
       if: ${{ inputs.ci-build-script == '' }}
-        #run: ${{ inputs.ci-build-script }}
       run: "echo test null"
       shell: "bash"
