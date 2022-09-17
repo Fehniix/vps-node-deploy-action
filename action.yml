@@ -28,6 +28,7 @@ runs:
       run: |
             npm install
             npm run build
+      shell: "bash"
             
     - name: "Execute custom, optional, CI build script"
       if: ${{ inputs.ci-build-script != '' }}
