@@ -5,7 +5,7 @@ inputs:
   node-version:
     description: "The NodeJS version used to setup the environment and build to project."
     required: true
-  ci-build-script:
+  post-build-script:
     description: "The optional build script that will be run post `npm run build`."
     required: false
   host:
