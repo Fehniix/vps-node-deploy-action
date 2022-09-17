@@ -33,6 +33,7 @@ runs:
     - name: "Execute custom, optional, CI build script"
       if: ${{ inputs.ci-build-script != '' }}
       run: ${{ inputs.ci-build-script }}
+      shell: "bash"
 
 # runs:
 #   using: "composite"
