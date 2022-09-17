@@ -9,39 +9,43 @@ inputs:
     description: "a"
     required: true
    
- 
-# runs:
-#   using: "composite"
-#   steps:
-#     - name: "Check out the current NodeJS repository"
-#       uses: actions/checkout@v3
-      
-#     - name: "Setup NodeJS enironment"
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: ${{ inputs.node-version }}
-        
-#     - name: "Build the project"
-#       run: |
-#             npm install
-#             npm run build
-            
-#     - name: "Execute custom, optional, CI build script"
-#       if: ${{ inputs.ci-build-script != '' }}
-#       run: ${{ inputs.ci-build-script }}
 runs:
   using: "composite"
   steps:
-    - name: "Debug output"
-      run: "echo \"${{ toJSON(inputs) }}\""
+    - name: "Exit early if required inputs are not provided."
+      run: "exit 1"
       shell: "bash"
       
+    - name: "Check out the current NodeJS repository"
+      uses: actions/checkout@v3
+      
+    - name: "Setup NodeJS enironment"
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+        
+    - name: "Build the project"
+      run: |
+            npm install
+            npm run build
+            
     - name: "Execute custom, optional, CI build script"
       if: ${{ inputs.ci-build-script != '' }}
       run: ${{ inputs.ci-build-script }}
-      shell: "bash"
+
+# runs:
+#   using: "composite"
+#   steps:
+#     - name: "Debug output"
+#       run: "echo \"${{ toJSON(inputs) }}\""
+#       shell: "bash"
       
-    - name: "Execute custom #2"
-      if: ${{ inputs.ci-build-script == '' }}
-      run: "echo test null"
-      shell: "bash"
+#     - name: "Execute custom, optional, CI build script"
+#       if: ${{ inputs.ci-build-script != '' }}
+#       run: ${{ inputs.ci-build-script }}
+#       shell: "bash"
+      
+#     - name: "Execute custom #2"
+#       if: ${{ inputs.ci-build-script == '' }}
+#       run: "echo test null"
+#       shell: "bash"
