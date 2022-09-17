@@ -6,14 +6,15 @@ inputs:
     description: "The NodeJS version used to setup the environment and build to project."
     required: true
   ci-build-script:
-    description: "a"
-    required: true
+    description: "The optional build script that will be run post `npm run build`."
+    required: false
    
 runs:
   using: "composite"
   steps:
     - name: "Exit early if required inputs are not provided."
-      run: "exit 1"
+      if: ${{ inputs.node-version == '' }}
+      run: 'echo "Error: node-version must be provided." && exit 1'
       shell: "bash"
       
     - name: "Check out the current NodeJS repository"
