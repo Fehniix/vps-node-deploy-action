@@ -54,7 +54,7 @@ runs:
       shell: "bash"
             
     - name: "Execute custom, optional, CI build script"
-      if: ${{ inputs.post-build-script != "" }}
+      if: ${{ inputs.post-build-script != '' }}
       run: ${{ inputs.post-build-script }}
       shell: "bash"
       
@@ -70,7 +70,7 @@ runs:
         
     - name: "Build the project and debloat"
       uses: appleboy/ssh-action@master
-      if: ${{ inputs.ssh-script != "" }}
+      if: ${{ inputs.ssh-script != '' }}
       with:
         host: ${{ inputs.host }}
         username: ${{ inputs.username }}
